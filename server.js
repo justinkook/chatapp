@@ -1,6 +1,7 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
 
 // Set the port to 3000 OR let the process set the port (if deployed to Heroku)
 const PORT = process.env.PORT || 3000;
@@ -20,7 +21,6 @@ mongoose.connect('mongodb://localhost/realTimeChat', { useNewUrlParser: true });
 require('./sockets/message-sockets')(io);
 // HTML Routes (require from routes file and pass in Express app)
 require('./routes/html-routes')(app);
-
 
 // Start the server
 app.listen(PORT, function() {
