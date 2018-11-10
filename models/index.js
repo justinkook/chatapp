@@ -1,3 +1,4 @@
 module.exports = {
-    RealTimeChat: require("./realTimeChat.js"),
+    Message: require("./message.js"),
+    Chat: require("./chat.js")
 }

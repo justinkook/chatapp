@@ -1,0 +1,54 @@
+.nav {
+    background: black;
+}
+
+nav input {
+    border: 1px solid transparent;
+    color: white;
+    background: black;
+    border-radius: .25rem;
+}
+
+nav input::placeholder {
+    color: white;
+}
+
+nav input:hover::placeholder {
+    color: black;
+}
+
+nav input:hover {
+    background: white;
+    color: black;
+}
+
+#message {
+    margin-left: .75rem;
+    margin-right: 0;
+    width: 80%;
+    border: 2px solid lightblue;
+    border-radius: .25rem;
+    cursor: text;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.fixed-bottom {
+    margin: .75rem;
+    display: flex;
+    justify-content: center;
+}
+
+.hiddenButton {
+    display: none;
+}
+
+#select-container {
+    display: inline;
+}
+
+#root {
+    height: 85vh;
+    overflow: scroll;
+} 

@@ -3,7 +3,12 @@ const RestfulAPI = require('./RestClass');
 
 module.exports = function (app) {
 
-    const realTimeChat = new RestfulAPI('realTimeChat', app, db.RealTimeChat);
-    realTimeChat.find();
-    realTimeChat.create();
+    const message = new RestfulAPI('message', app, db.Message);
+    message.find();
+    message.create();
+
+    const chat = new RestfulAPI('chat', app, db.Chat);
+    chat.find();
+    chat.create();
+
 }

@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 
 var Schema = mongoose.Schema;
 
-var RealTimeChatSchema = new Schema(
+var MessageSchema = new Schema(
     {
 
         sender: {
@@ -17,6 +17,6 @@ var RealTimeChatSchema = new Schema(
     }
 );
 
-var RealTimeChat = mongoose.model("RealTimeChat", RealTimeChatSchema);
+var Message = mongoose.model("Message", MessageSchema);
 
-module.exports = RealTimeChat;
+module.exports = Message;
