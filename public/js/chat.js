@@ -46,7 +46,7 @@ const sendMessage = function (e) {
         });
 }
 
-socket.on('emit-message', function (data) {
+socket.on('displayclear-message', function (data) {
     let htmlstr = '';
 
     htmlstr += `<h5 class="card-title">${data.sender}</h5>`;
@@ -88,21 +88,29 @@ $('#send-name').on('click', sendName);
  * Start Chat
  */
 
-const startChat = (e) => {
-    e.preventDefault();
+const startChat = function (event) {
+    event.preventDefault();
     user2 = $('select').find(':selected').text();
-
+    // $(''.)show();
     const newChat = {
-        userNames: [name, user2]
+        userNames: [user1, user2]
     }
+    $.ajax({ url: "/api/chat", method: "GET" })
+        .then(function (dataList) {
+            const match = dataList.filter(
+                item => item.userNames.includes(user1) && item.userNames.includes(user2)
+            );
+            if (match.length === 2 || match.length === 1) {
+                console.log('match')
 
-    $.post('/api/chat', newChat)
-    .then( function (data) {
-        console.log(data)
-    })
-    .catch( function(err) {
-        res.json(err);
-    })
+            } else if (match.length === 0) {
+                $.ajax({ url: "/api/chat", method: "POST", data: newChat }).then(function (data) {
+                }).then(function () {
+
+                })
+            }
+
+        })
 }
 
 $('#select-container').on('change', 'select', startChat);

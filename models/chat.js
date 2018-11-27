@@ -12,7 +12,7 @@ var ChatSchema = new Schema(
         },
         message: [{
             type: Schema.Types.ObjectId,
-            ref: 'message'
+            ref: 'Message'
         }
         ],
 

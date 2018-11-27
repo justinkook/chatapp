@@ -14,11 +14,9 @@ module.exports = function(io) {
             //Object.keys gives an array of object fields
         })
 
-        socket.on('new-message', function(data){
-            console.log('this is new-name data');
-            console.log(data);
-            io.emit('emit-message', data);
-        })
+        // socket.on('new-message', function(data){
+        //     io.emit('display-message', data);
+        // })
 
         socket.on('new-change', function(newData){
 
